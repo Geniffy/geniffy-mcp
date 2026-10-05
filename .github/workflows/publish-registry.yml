@@ -1,0 +1,26 @@
+# Publishes server.json to the official MCP Registry (registry.modelcontextprotocol.io) whenever it changes,
+# with no token stored anywhere: the registry trusts this workflow through GitHub's OIDC, which is what lets it
+# publish under io.github.Geniffy/*. Each publish needs a new "version" in server.json.
+name: Publish to the MCP Registry
+
+on:
+  push:
+    branches: [main]
+    paths: [server.json]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install mcp-publisher
+        run: curl -fsSL https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz | tar xz mcp-publisher
+      - name: Sign in with GitHub
+        run: ./mcp-publisher login github-oidc
+      - name: Publish
+        run: ./mcp-publisher publish
