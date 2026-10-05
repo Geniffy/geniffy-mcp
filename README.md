@@ -19,6 +19,9 @@ https://api.geniffy.com/mcp
 A hosted, remote MCP server (Streamable HTTP) with sign-in built in: there is nothing to install and no key to
 copy. Add the URL to your app, sign in to Geniffy when it asks, and choose what the app may do.
 
+Listed in the [official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.Geniffy/geniffy-mcp)
+as `io.github.Geniffy/geniffy-mcp`.
+
 ## Connect your app
 
 | App | How |
