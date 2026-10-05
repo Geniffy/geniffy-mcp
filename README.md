@@ -28,7 +28,7 @@ as `io.github.Geniffy/geniffy-mcp`.
 | --- | --- |
 | **Claude** (Claude.ai and the desktop app) | **Settings → Connectors → Add custom connector.** Name it `Geniffy`, paste the URL, leave the OAuth fields empty, then **Connect** and **Allow**. [Guide](https://docs.geniffy.com/mcp/claude) |
 | **ChatGPT** (web, developer mode) | **Settings → Plugins → Developer mode**, then **Browse plugins → +**: name `Geniffy`, **Server URL**, paste the URL, **Create**, **Sign in with Geniffy**. [Guide](https://docs.geniffy.com/mcp/chatgpt) |
-| **Claude Code** | `claude mcp add --transport http geniffy https://api.geniffy.com/mcp`, then `/mcp` → **geniffy** → **Authenticate**. [Guide](https://docs.geniffy.com/mcp/claude-code) |
+| **Claude Code** | The [Geniffy plugin](https://github.com/Geniffy/geniffy-claude-code) recalls and saves by itself: `/plugin marketplace add Geniffy/geniffy-claude-code`, `/plugin install geniffy@geniffy`, `/geniffy:login`. Or the server alone: `claude mcp add --transport http geniffy https://api.geniffy.com/mcp`. [Guide](https://docs.geniffy.com/mcp/claude-code) |
 | **Cursor** | One click from the [docs](https://docs.geniffy.com/mcp/cursor), or the config below. Cursor asks you to sign in the first time it uses Geniffy. |
 | **VS Code** | The **Install in VS Code** badge above, or the config below. VS Code opens the sign-in when it starts the server. [Guide](https://docs.geniffy.com/mcp/vscode) |
 | **Codex** | `codex mcp add geniffy --url https://api.geniffy.com/mcp`, then `codex mcp login geniffy`. [Guide](https://docs.geniffy.com/mcp/codex) |
