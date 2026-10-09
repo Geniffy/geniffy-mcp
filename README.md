@@ -58,21 +58,25 @@ VS Code, in `.vscode/mcp.json`:
 
 | Tool | What it does | Changes your memory |
 | --- | --- | --- |
+| `briefing` | Where a project stands, what is due, the rules that apply and what happened, to start a session with | No |
 | `search` | Finds the facts that match, with where and when each was said | No |
 | `fetch` | Opens one memory: the exact line it came from, and what it said before | No |
 | `ask` | Answers from your memory only, or says that nothing supports an answer | No |
 | `profile` | What is lastingly true about you, and what is going on now | No |
 | `list_memories` | Your memories, newest first, by kind | No |
-| `remember` | Saves something you ask it to remember | Yes |
+| `remember` | Saves something you ask it to remember, or a session as it goes, tool calls included | Yes |
 | `correct` | Marks a memory wrong and saves what is right in its place | Yes |
 | `forget` | Forgets one memory, or one source, for good | Yes |
 
 Every tool has an input schema, an output schema and annotations that say whether it changes your memory.
-`search` and `fetch` return the shape ChatGPT's connectors read. Inputs and results:
+`search` and `fetch` return the shape ChatGPT's connectors read. Apps are told to read the briefing at the start
+of a session and whenever the task changes. Inputs and results:
 [docs.geniffy.com/mcp/tools](https://docs.geniffy.com/mcp/tools).
 
 ## How it answers
 
+- **Where you left off.** The briefing says where each project stands, what is due, the rules that apply and
+  what happened before, so a new session picks up where the last one ended.
 - **With its source.** Every fact comes back with the line it was read from, who said it and when.
 - **Or not at all.** When nothing in your memory supports an answer, Geniffy says so, and the app is told to
   say it doesn't know rather than guess.
@@ -84,9 +88,10 @@ Every tool has an input schema, an output schema and annotations that say whethe
   until you press **Allow**.
 - **Read, or read and change.** Turn off saving when you connect, and the app never sees the tools that
   change your memory.
-- **Disconnect at any time** in the [Geniffy app](https://geniffy.com/app/mcp) under **Agents and MCP**. Every
+- **Disconnect at any time** in the [Geniffy app](https://geniffy.com/app/apps) under **Connect**. Every
   call an app makes is listed under **Requests**, with its name.
-- **Your memory stays in India**, where Geniffy keeps it.
+- **Yours to download or erase.** Download a copy of everything it holds from the Geniffy app, and erase any of
+  it whenever you like.
 
 ## Sign-in, for client developers
 
